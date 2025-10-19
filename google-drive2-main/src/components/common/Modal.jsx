@@ -132,7 +132,7 @@ const HelpModal = ({ openHelp, closeHelpModal }) => {
           <p>Contact Me:</p>
           <div className="links">
             <a
-              href="https://github.com/Mayankkatheriya"
+              href="https://github.com/Aishubidda"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -145,7 +145,7 @@ const HelpModal = ({ openHelp, closeHelpModal }) => {
               Github
             </a>
             <a
-              href="https://www.linkedin.com/in/mayank-gupta-752328173/"
+              href="https://www.linkedin.com/in/aishwarya17407"
               target="_blank"
               rel="noopener noreferrer"
             >
