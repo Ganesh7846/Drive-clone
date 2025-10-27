@@ -111,3 +111,8 @@ body.dark-mode .MuiMenuItem-root.delete-item {
   opacity: 0.7;
   pointer-events: none;
 }
+
+html, body {
+  overflow-x: hidden;
+  width: 100%;
+}

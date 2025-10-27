@@ -24,7 +24,7 @@ const HelpModal = ({ openHelp, closeHelpModal }) => {
         </ModalHeading>
         <ModalBody>
           <div className="image">
-            <img src="public/Profile_avatar_placeholder_large.png" alt="" />
+            <img src="public\WhatsApp Image 2025-10-27 at 10.07.24.jpeg" alt="" />
           </div>
           <h2>Chetan Gowda K</h2>
           <p>Contact Me:</p>
@@ -58,7 +58,7 @@ const HelpModal = ({ openHelp, closeHelpModal }) => {
           </div>
 
           <div className="image">
-            <img src="public/Profile_avatar_placeholder_large.png" alt="" />
+            <img src="public\WhatsApp Image 2025-10-27 at 10.06.45.jpeg" alt="" />
           </div>
           <h2>M Premananda</h2>
           <p>Contact Me:</p>
@@ -92,7 +92,7 @@ const HelpModal = ({ openHelp, closeHelpModal }) => {
           </div>
 
           <div className="image">
-            <img src="public/Profile_avatar_placeholder_large.png" alt="" />
+            <img src="public\WhatsApp Image 2025-10-27 at 10.16.25.jpeg" alt="" />
           </div>
           <h2>Ganesh</h2>
           <p>Contact Me:</p>
@@ -126,7 +126,7 @@ const HelpModal = ({ openHelp, closeHelpModal }) => {
           </div>
 
           <div className="image">
-            <img src="public/Profile_avatar_placeholder_large.png" alt="" />
+            <img src="public\WhatsApp Image 2025-10-27 at 10.10.24.jpeg" alt="" />
           </div>
           <h2>Aishwarya K</h2>
           <p>Contact Me:</p>

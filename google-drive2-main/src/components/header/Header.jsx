@@ -119,7 +119,7 @@ const RightContainer = styled.div`
 `;
 
 const MobileThemeToggle = styled.div`
-  display: none;
+  display: flex;
   @media (max-width: 768px) {
     display: inline-flex;
     align-items: center;

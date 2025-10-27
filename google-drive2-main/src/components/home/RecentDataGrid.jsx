@@ -5,8 +5,13 @@ import FileIcons from "../common/FileIcons";
 const RecentDataGrid = ({ files }) => {
   return (
     <DataGrid>
-      {files.slice(0, 4).map((file) => (
-        <DataFile key={file.id} href={file.data.fileURL} target="_blank">
+      {files.slice(0, 10).map((file) => (
+        <DataFile
+          key={file.id}
+          href={file.data.fileURL}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <FileIcons type={file.data.contentType} />
           <p title={file.data.filename}>{file.data.filename}</p>
         </DataFile>
@@ -15,59 +20,82 @@ const RecentDataGrid = ({ files }) => {
   );
 };
 
+export default RecentDataGrid;
+
+// ✅ Styles
 const DataGrid = styled.div`
   width: 100%;
-  overflow: hidden;
+  margin-top: 25px;
+  margin-bottom: 25px;
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
-  margin-top: 30px;
-  margin-bottom: 30px;
+  gap: 12px;
+  overflow: hidden;
 
-  @media screen and (max-width: 768px) {
-    display: none;
+  /* 🖥 Desktop — use normal grid layout */
+  @media screen and (min-width: 769px) {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    overflow: visible;
   }
 
-  p {
-    display: -webkit-box;
-    -webkit-line-clamp: 1;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    text-overflow: ellipsis;
+  /* 📱 Mobile — only show 2 cards fully in view */
+  @media screen and (max-width: 768px) {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    gap: 16px;
+    padding: 10px 8px;
+    scrollbar-width: none; /* Firefox */
+    &::-webkit-scrollbar {
+      display: none; /* Chrome/Safari */
+    }
   }
 `;
 
 const DataFile = styled.a`
   text-align: center;
   border: 1px solid rgb(204 204 204 / 46%);
-  margin: 10px;
-  min-width: 200px;
-  padding: 10px 0px 0px 0px;
-  border-radius: 5px;
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  padding: 12px 0 0 0;
   text-decoration: none;
+  transition: transform 0.2s ease;
+  flex: 0 0 48%; /* ✅ Two fully visible cards at a time */
+  scroll-snap-align: start;
   max-width: 250px;
-  p {
-    color: #000;
-    font-weight: 600;
+
+  &:hover {
+    transform: translateY(-4px);
   }
+
   svg {
-    font-size: 60px;
+    font-size: 50px;
     color: gray;
   }
+
   p {
-    border-top: 1px solid #ccc;
-    margin-top: 5px;
-    font-size: 12px;
-    background: whitesmoke;
-    padding: 10px 0px;
-    display: -webkit-box;
-    -webkit-line-clamp: 1;
-    -webkit-box-orient: vertical;
+    color: #111827;
+    font-weight: 600;
+    font-size: 13px;
+    border-top: 1px solid #e5e7eb;
+    margin-top: 6px;
+    background: #f9fafb;
+    padding: 10px 5px;
     overflow: hidden;
     text-overflow: ellipsis;
-    word-wrap: break-word;
-    width: 100%;
+    white-space: nowrap;
+  }
+
+  @media screen and (max-width: 768px) {
+    flex: 0 0 48%; /* ✅ exactly two visible at once */
+  }
+
+  @media screen and (max-width: 480px) {
+    flex: 0 0 85%; /* ✅ on very small phones, one visible, next hidden */
   }
 `;
-
-export default RecentDataGrid;
