@@ -112,7 +112,6 @@ const Grid = styled.div`
   @media (max-width: 420px)  { grid-template-columns: 1fr; }
 `;
 
-
 const Card = styled.div`
   border: 1px solid #e5e7eb;
   border-radius: 12px;
@@ -121,12 +120,33 @@ const Card = styled.div`
   gap: 10px;
   align-items: flex-start;
   background: #fff;
+  transition: background 0.25s ease, border-color 0.25s ease;
+
+  /* 🌙 DARK MODE FIX */
+  body.dark-mode & {
+    background: #1f1f1f;
+    border-color: #2e2e2e;
+  }
+
+  body.dark-mode &:hover {
+    background: #2a2a2a;
+    border-color: #3a3a3a;
+  }
 `;
 
 const IconWrap = styled.div`
   flex: 0 0 auto;
   display: grid;
   place-items: center;
+
+  svg {
+    color: #6b7280;
+  }
+
+  /* 🌙 Dark Mode Icons */
+  body.dark-mode & svg {
+    color: #d1d5db;
+  }
 `;
 
 const Info = styled.div`
@@ -141,6 +161,10 @@ const Title = styled.div`
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+
+  body.dark-mode & {
+    color: #e5e7eb;
+  }
 `;
 
 const Meta = styled.div`
@@ -148,6 +172,10 @@ const Meta = styled.div`
   gap: 8px;
   font-size: 12px;
   color: #6b7280;
+
+  body.dark-mode & {
+    color: #9ca3af;
+  }
 `;
 
 const ActionButton = styled.button`
@@ -158,7 +186,20 @@ const ActionButton = styled.button`
   background: #f9fafb;
   cursor: pointer;
   font-weight: 600;
+  transition: 0.2s ease;
+
   &:hover { background: #f3f4f6; }
+
+  /* 🌙 DARK MODE FIX */
+  body.dark-mode & {
+    border-color: #3a3a3a;
+    background: #2a2a2a;
+    color: #e5e7eb;
+  }
+
+  body.dark-mode &:hover {
+    background: #333;
+  }
 `;
 
 const ActionLink = styled.a`
@@ -172,7 +213,20 @@ const ActionLink = styled.a`
   color: #111827;
   text-decoration: none;
   display: inline-block;
+  transition: 0.2s ease;
+
   &:hover { background: #f3f4f6; }
+
+  /* 🌙 DARK MODE FIX */
+  body.dark-mode & {
+    color: #e5e7eb;
+    border-color: #3a3a3a;
+    background: #2a2a2a;
+  }
+
+  body.dark-mode &:hover {
+    background: #333;
+  }
 `;
 
 export default FilesList;
